@@ -1,0 +1,28 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ design_details.watch_design.name }} Details
+{% endblock %}
+
+{% block content %}
+<section id="details">
+  <h1>{{ design_details.watch_design.name }} Details</h1>
+  <article class="product">
+    <figure class="image">
+      <img src="{{ design_details.watch_design.image.url }}" alt="{{ design_details.watch_design.name }}">
+    </figure>
+    <div class="info">
+      <p><strong>Description:</strong> {{ design_details.watch_design.description }}</p>
+      <p><strong>Watch Face:</strong> {{ design_details.watch_face }}</p>
+      <p><strong>Strap:</strong> {{ design_details.strap }}</p>
+      <p><strong>Dial:</strong> {{ design_details.dial }}</p>
+      <p><strong>Price:</strong> ${{ design_details.price }}</p>
+      <p><strong>Movement:</strong> {{ design_details.movement }}</p>
+      <p><strong>Features</strong> {{ design_details.features }}</p>
+      <a href="{% url 'add_to_cart' design_details.watch_design.id %}" class="btn btn-primary">Add To Cart</a>
+    </div>
+  </article>
+</section>
+{% endblock %}

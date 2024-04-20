@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+TimeStyle - All Products
+{% endblock %}
+
+{% block content %}
+<section id="cart">
+  <h1>Your Cart</h1>
+  {% for u in cart_items %}
+    {% if u.user.first_name and forloop.first %}
+      <p>Hello, {{ u.user.first_name }} {{ u.user.last_name }}!</p>
+    {% endif %}
+  {% endfor %}
+
+  {% if not cart_items %}
+    <p>Hello, Guest!</p>
+  {% endif %}
+{% for cart_item in cart_items %}
+  {% if cart_item %}
+    <div class="flex-container">
+      <div class="flex-image">
+        <figure>
+          <img src="{{ cart_item.design.watch_design.image.url }}" alt="{{ cart_item.design.name }}" width="50">
+          <figcaption>{{ cart_item.design.watch_design.name }}</figcaption>
+        </figure>
+      </div>
+      <div class="flex-item">
+        <p>Price: ${{ cart_item.design.price }}</p>
+        <p>Status: {{ cart_item.status }}</p>
+        <p>Order Date: {{ cart_item.order_date }}</p>
+        <p>Quantity: {{ cart_item.quantity }}</p>
+        <p class="subtotal">Subtotal: <span id="subtotal">${{ subtotal }}</span></p>
+        <div class="checkout-button">
+          <button class="checkout">Checkout</button>
+          <button class="remove-btn" style="color: darkred;" aria-label="Remove {{ cart_item.design.name }} from cart" id="remove-{{ cart_item.id }}">Remove</button>
+        </div>
+      </div>
+    </div>
+
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+{% endfor %}
+</section>
+{% endblock %}

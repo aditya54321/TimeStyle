@@ -1,0 +1,410 @@
+<!-- ------------------Footer-------------------- -->
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<div class="footer-col-1">
+				<h3>Download Our App</h3>
+				<p>Download app for android and ios mobile phone.</p>
+				<div class="app-logo">
+					<img src="play-store.png">
+					<img src="app-store.png">
+				</div>
+			</div>
+			<div class="footer-col-2">
+				<img src="logo-white.png">
+				<p>Our purpose is to sustainably make the pleasure and<br>benefits to sports accessible to the many. </p>
+			</div>
+			<div class="footer-col-3">
+				<h3>Useful Links</h3>
+				<ul>
+					<li>Coupons</li>
+					<li>Blog Post</li>
+					<li>Return Policy</li>
+					<li>Join Affiliate</li>
+				</ul>
+			</div>
+			<div class="footer-col-4">
+				<h3>Follow Us</h3>
+				<ul>
+					<li>Facebook</li>
+					<li>Twitter</li>
+					<li>Instagram</li>
+					<li>YouTube</li>
+				</ul>
+			</div>
+		</div>
+		<hr>
+		<p class="copyright">Copyright 2023 - nehaojha. All right reserved.</p>
+	</div>
+</div> 
+ 
+ 
+ 
+ 
+ .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0px;
+    width: 100%;
+    /* height: 100px; */
+    background-color: #ccc;
+    padding: 5px;
+    overflow: hidden;
+  }
+  footer p{
+    text-align:center;
+  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <div id="wrapper">
+    <header>
+      <div id="logo">
+        <a href="{% url 'home' %}">
+          <img src="{% static 'images/logo.jpg' %}" alt="TimeStyle logo">
+        </a>
+      </div>
+      <div class="website">
+        <h3>TimeStyler</h3>
+      </div>
+      <div class="navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+              <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav">
+                      <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
+                      <a href="{% url 'cart' %}" class="nav-item nav-link">Profile</a>
+                      <a href="#" class="nav-item nav-link">Messages</a>
+                  </div>
+                  <div class="navbar-nav ms-auto">
+                      <a href="{% url 'login' %}" class="nav-item nav-link">Login</a>
+                      <a href="{% url 'signup' %}" class="nav-item nav-link">Signup</a>
+                  </div>
+              </div>
+          </div>
+        </nav>
+      </div>
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# objects = UserManager()
+
+# class UserManager(BaseUserManager):
+#     def create_user(self, email, password=None, **extra_fields):
+#         if not email:
+#             raise ValueError('The Email field must be set')
+#         email = self.normalize_email(email)
+#         user = self.model(email=email, **extra_fields)
+#         user.set_password(password)
+#         user.save(using=self._db)
+#         return user
+
+
+
+
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TimeStyle - All Products</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+  crossorigin="anonymous">
+  <!-- Bootstrap 5 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  
+  <header>
+    <!-- Bootstrap 5 navbar with dropdown for mobile view -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TimeStyle</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">User</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <div class="container">
+    <h1>All Products</h1>
+
+    <div class="products">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
+        {% for design in designs %}
+          <div class="col">
+            <a href="{% url 'details' design.id %}">
+              <img src="{{ design.image.url }}" alt="{{ design.name }}">
+            </a>
+            <h3>{{ design.name }}</h3>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TimeStyle - All Products</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+  crossorigin="anonymous">
+</head>
+
+
+
+
+{% extends "base.html" %}
+<!-- The 'title' block contains the title of the home page -->
+{% block title %}
+TimeStyle - All Products
+{% endblock %}
+<!-- The 'content' block contains the content of the home page -->
+{% block content %}
+<section id="products">
+  <h1>All Products</h1>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
+    {% for design in designs %}
+      <!-- The 'product' article contains the details of each product -->
+      <article class="product col">
+        <a href="{% url 'details' design.id %}">
+          <figure>
+            <img src="{{ design.image.url }}" alt="{{ design.name }}">
+            <figcaption>{{ design.name }}</figcaption>
+          </figure>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                rel="stylesheet"
+                integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+                crossorigin="anonymous">
+     <!-- Bootstrap 5 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"></script>
+
+
+
+    <script>
+    // Get the button element by its id
+    var button = document.getElementById("navbar-toggler");
+
+    // Get the menu element by its id
+    var menu = document.getElementById("navbar-menu");
+
+    // Assign a function to the button's onclick attribute
+    button.onclick = function() {
+      // Check the current visibility of the menu
+      if (menu.style.display == "none") {
+        // If the menu is hidden, make it visible
+        menu.style.display = "block";
+      } else {
+        // If the menu is visible, make it hidden
+        menu.style.display = "none";
+      }
+    };
+  </script>
+
+
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+UserOrder
+{% endblock %}  
+{% block content %}
+  <h1>Your Cart</h1>
+  {% for u in cart_items %}
+    {% if u.user.first_name and forloop.first %}
+      <p>Hello, {{ u.user.first_name }} {{ u.user.last_name }}!</p>
+    {% endif %}
+  {% endfor %}
+
+  {% if not cart_items %}
+    <p>Hello, Guest!</p>
+  {% endif %}
+
+  {% if cart_items %}
+    <div id="cart">
+      <table>
+        <thead>
+          <tr>
+            <th id="cart-head">Design</th>
+            <th id="cart-head">Status</th>
+            <th id="cart-head">Order Date</th>
+            <th id="cart-head">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cart_item in cart_items %}       
+            <tr class="cart-item">
+              <td class="cart-item-details">
+                <img src="{{ cart_item.design.image.url }}" alt="{{ cart_item.design.name }}" width="50">
+              </td>
+              <td>              
+                <h4>{{ cart_item.design.name }}</h4>
+                <p>{{ cart_item.design.description }}</p>
+                <p>{{ cart_item.status }}</p>
+                <p>{{ cart_item.order_date }}</p>
+                <p class="quantity">
+                  <input type="number" value="{{ cart_item.quantity }}" min="1">
+                  <button class="remove-btn">Remove</button>
+                </p>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+{% endblock %}
+
+
+
+/* Cart page specific styles */
+#cart {
+    padding: 5px;
+    margin-top: 5px;
+}
+#cart #cart-head{
+    align-items: left;
+    display: flex;
+    padding-left: 30px;
+    justify-content:flex-start;
+}
+
+.cart-item {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item img {
+    width: 50px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.cart-item p {
+    margin: 0;
+    color: #888;
+}
+
+.cart-item .quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item .quantity input {
+    width: 40px;
+    padding: 5px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.cart-item .remove-btn {
+    background-color: #FF6347;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
