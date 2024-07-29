@@ -1,13 +1,18 @@
 from django.db import models
 from django.utils import timezone
+import uuid
+from .validators import *
+from .utils import *
     
 class WatchDesign(models.Model):
+    # id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, primary_key=True)
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='watch_designs/')
     description = models.TextField()
     
     def __str__(self):
         return self.name
+
 
 
 class DesignDetails(models.Model):
@@ -21,12 +26,29 @@ class DesignDetails(models.Model):
 
     def __str__(self):
         return f"{self.watch_design.name} - Details"
+    
+class seller(models.Model):
+    name = models.CharField(max_length=50,default="Aditya Singh")
+    address = models.CharField(max_length=150,default="Indra nagar, lucknow")
+    phone = models.IntegerField(default='+91 8707465112')
+    date = models.DateField(default=timezone.now)
+
+class buyer(models.Model):
+    name = models.CharField(max_length=50)
+    address = models.CharField(max_length=150)
+    district = models.CharField(max_length=20)
+    state = models.CharField(max_length=50)
+    pin_code = models.IntegerField(max_length=6)
+    phone = models.IntegerField(max_length=13)
+    purchase_date = models.DateField(default=timezone.now)
+
 
 class Users(models.Model):
     user_id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=150, blank=True)
     last_name = models.CharField(max_length=150, blank=True)
     email = models.EmailField(max_length=100, unique=True)
+    mobile_number = models.CharField(max_length=15, blank=True, null=True) #,validators=[MobileRegexValidator()]
     password = models.CharField(max_length=100)
     registration_date = models.DateField(auto_now_add=True)
     last_login = models.DateField(default=timezone.now)
@@ -36,6 +58,16 @@ class Users(models.Model):
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+    def clean_fields(self, exclude=None):
+        super().clean_fields(exclude=exclude)
+        # Clean first name and last name before saving
+        self.first_name = clean_name(self.first_name)
+        self.last_name = clean_name(self.last_name)
+
+    def save(self, *args, **kwargs):
+        # Clean first name and last name before saving
+        self.full_clean()
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "custome user"
@@ -44,11 +76,37 @@ class Users(models.Model):
     def __str__(self):
         return self.first_name
   
-class Order(models.Model):
+class Cart(models.Model):
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     design = models.ForeignKey(DesignDetails, on_delete=models.CASCADE)
     is_manufactured = models.BooleanField(default=False)
     status = models.CharField(max_length=20, choices=[('Pending', 'Pending'), ('Shipped', 'Shipped'), ('Delivered', 'Delivered')], default='Pending')
     order_date = models.DateTimeField(auto_now_add=True)
     in_cart = models.BooleanField(default=False)
+    quantity = models.PositiveIntegerField(default=0)
+
+
+class Payment(models.Model):
+    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    order = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    payment_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    razorpay_id = models.CharField(max_length=100, null=True, blank=True)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
+    status = models.CharField(max_length=20, choices=[('Pending', 'Pending'), ('Failed', 'Failed'), ('Successful', 'Successful')], default='Pending')
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        # return str(self.payment_id)
+        return f"Cart {self.id} by {self.user.email}"
+    
+
+class OrderReceipt(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
+    total_quantity = models.PositiveIntegerField(default=1)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.cart.user.first_name} x {self.cart.design.watch_design.name} in Cart {self.payment.payment_id}"
+    

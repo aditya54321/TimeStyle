@@ -436,3 +436,23 @@ a:hover {
     transform: scale(1.1);
   }
   
+
+
+
+
+
+
+
+.add-btn, .remove-btn, .add-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-btn:hover, .remove-btn:hover {
+    background-color: #e8e9ea;
+} 
