@@ -25,15 +25,26 @@ TimeStyle - All Products
           <figcaption>{{ cart_item.design.watch_design.name }}</figcaption>
         </figure>
       </div>
-      <div class="flex-item">
-        <p>Price: ${{ cart_item.design.price }}</p>
+      <div class="flex-item" data-item-id="{{ cart_item.design.id }}">
+        <!-- <p>id: ${{ cart_item.design.id }}</p> -->
+        <p class="price" data-price="{{ cart_item.design.price }}">Price: ${{ cart_item.design.price }}</p>
         <p>Status: {{ cart_item.status }}</p>
-        <p>Order Date: {{ cart_item.order_date }}</p>
-        <p>Quantity: {{ cart_item.quantity }}</p>
-        <p class="subtotal">Subtotal: <span id="subtotal">${{ subtotal }}</span></p>
+        <p>Cart Date: {{ cart_item.order_date }}</p>
+        <!-- <p>Quantity: {{ cart_item.quantity }}</p> -->
+        <p class="quantity" data-quantity="{{ cart_item.quantity }}">Quantity: {{ cart_item.quantity }}</p>
+          <div class="quantity-buttons">
+            <a href="{% url 'add_to_cart' design_id=cart_item.design.id %}" class="add-btn">+</a>
+            <a href="{% url 'decrement_cart' design_id=cart_item.design.id %}" class="remove-btn">-</a>
+          </div>
+        <p class="subtotal">Subtotal: $</p>
         <div class="checkout-button">
-          <button class="checkout">Checkout</button>
-          <button class="remove-btn" style="color: darkred;" aria-label="Remove {{ cart_item.design.name }} from cart" id="remove-{{ cart_item.id }}">Remove</button>
+          <form method="post" action="{% url 'create_order' %}">
+            {% csrf_token %}
+            <input type="hidden" name="item_id" value="{{ cart_item.design.id }}">
+            <input type="hidden" name="quantity" value="{{ cart_item.quantity }}">
+            <input type="submit" value="Checkout">
+          </form>
+          <a href="{% url 'remove_from_cart' design_id=cart_item.design.id %}" class="delete-btn btn btn-primary">Remove</a>
         </div>
       </div>
     </div>
@@ -42,5 +53,13 @@ TimeStyle - All Products
     <p>Your cart is empty.</p>
   {% endif %}
 {% endfor %}
+<div class="checkout-section">
+  <div class="total" id="total-amount">Total: $</div>
+  <form method="post" action="{% url 'create_order' %}">
+    {% csrf_token %}
+    <input type="submit" value="Pay Now">
+  </form>
+  <!-- <button class="pay-now">Pay Now</button> -->
+</div>
 </section>
 {% endblock %}

@@ -1,9 +1,18 @@
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
-from .models import Users,WatchDesign,DesignDetails,Order
+from TimeStyle import settings
+from .models import Users,WatchDesign,DesignDetails,Cart, Payment, OrderReceipt
+from .utils import *
+from .validators import *
+
 from django.contrib.auth import authenticate, login, logout
 from django.utils import timezone
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
+from django.http import JsonResponse
+from django.conf import settings
+import razorpay
+import json
+
 
 @csrf_protect
 def login_view(request):
@@ -36,15 +45,18 @@ def signup_view(request):
         last = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
+        print(first,last,email,password)
         try:
-            user = Users()
-            user.first_name=first,
-            user.last_name = last,
-            user.email = email,
-            user.password=password,
+            user = Users(
+            first_name = first,
+            last_name = last,
+            email = email,
+            password=password,
+            is_active=True 
+            )
             # print(user.first_name,user.last_name,user.email,user.password)
             user.save()
-            user.is_active=True 
+            
             # user = Users.objects.create_user(email=email, password=password)
             login(request, user)
             return redirect('home')
@@ -54,6 +66,9 @@ def signup_view(request):
         return render(request, 'signup.html')
 
     
+
+
+
 def home(request):
     designs = WatchDesign.objects.all()
     return render(request, 'home.html', {'designs': designs})
@@ -61,7 +76,7 @@ def home(request):
 
 def details_view(request, design_id):
     try:
-        design_details = get_object_or_404(DesignDetails, watch_design_id=design_id)
+        design_details = get_object_or_redirect(DesignDetails, watch_design_id=design_id)
         return render(request, 'design_detail.html', {'design_details': design_details})
     except: 
         return redirect('home')
@@ -71,27 +86,70 @@ def details_view(request, design_id):
 def cart(request):
     # user_name = request.session.get('user_name')
     user_email = request.session.get('user_email')
-    cart_items = Order.objects.filter(user__email=user_email, in_cart=True)
+    cart_items = Cart.objects.filter(user__email=user_email, in_cart=True)
     context = {
         'cart_items': cart_items,
     }
     return render(request, 'cart.html', context)
 
+
+@csrf_protect
 def addtocart(request, design_id):
     user_email = request.session.get('user_email')
-    euser = Users.objects.get(email=user_email)
+    euser = get_object_or_redirect(Users, email=user_email)
     if euser:
         design = WatchDesign.objects.get(pk=design_id)
-        existing_order = Order.objects.filter(user__email=user_email, design=design_id, in_cart=True).first()
+        # design_details = DesignDetails.objects.get(watch_design=design)
+        design_details = get_object_or_redirect(DesignDetails,watch_design=design)
+        existing_order = Cart.objects.filter(user__email=user_email, design=design_id, in_cart=True).first()
         print (euser.first_name,euser.email,design.id)
-        if existing_order :
+        if existing_order and request.method == 'GET':
             existing_order.quantity += 1
             existing_order.save()
             print(existing_order.user, existing_order.order_date,"\n order is already in cart updated quantity")
+        elif  request.method == 'POST' :
+            quantity = request.POST.get('quantity')
+            print(quantity)
+            existing_order.quantity = quantity
+            existing_order.save()
         else:
             # print("order not found \n")
-            Order.objects.create(user=euser, design=design, in_cart=True)
+            Cart.objects.create(user=euser, design=design_details, in_cart=True, quantity = 1)
         return redirect('cart')
+    else:
+        return redirect('login')
+    
+
+    
+@csrf_protect
+def decrement_cart(request, design_id):
+    if request.method == 'POST':
+        user_email = request.session.get('user_email')
+        euser = Users.objects.get(email=user_email)
+        if euser:
+            design = WatchDesign.objects.get(pk=design_id)
+            print(design.name)
+            existing_order = Cart.objects.filter(user__email=user_email, design=design_id, in_cart=True).first()
+            if existing_order:
+                if existing_order.quantity > 1:  # Ensure quantity doesn't go below 1
+                    existing_order.quantity -= 1
+                    existing_order.save()
+            return redirect('cart')
+    else:
+        return redirect('login')
+
+@csrf_protect
+def remove_from_cart(request, design_id):
+    if request.method == 'POST':
+        user_email = request.session.get('user_email')
+        euser = Users.objects.get(email=user_email)
+        if euser :
+            design = WatchDesign.objects.get(pk=design_id)
+            print(design.name)
+            existing_order = Cart.objects.filter(user__email=user_email, design=design_id, in_cart=True).first()
+            if existing_order:
+                existing_order.delete() 
+            return redirect('cart')
     else:
         return redirect('login')
 
@@ -101,6 +159,55 @@ def addtocart(request, design_id):
 
 
 
+@csrf_exempt
+def create_order(request):
+
+    if request.method == 'POST':
+        client = razorpay.Client(auth=(settings.RAZORPAY_KEY, settings.RAZORPAY_SECRET))
+        # user = request.user
+        user_email = request.session.get('user_email')
+        user = get_object_or_redirect(Users, email = user_email)
+        item_id = request.POST.get('item_id', None)
+        quantity = int(request.POST.get('quantity', 1))
+        if item_id is not None:
+            item = DesignDetails.objects.get(id=item_id)
+            amount = item.price * quantity  # The amount is now based on the quantity.
+        else:
+            #adding logic .....
+            amount = 0  
+
+        cart_details = Cart.objects.get(user = user, design = item)
+        print(cart_details.status)
+
+        # cart_details.save()
+        # Create a new order in Razorpay.
+        data = {
+            'amount': int(amount * 100),  # The amount must be in paisa.
+            'currency': 'INR',
+            'receipt': str(item_id), #cart_details.design.name,
+            'payment_capture': '1'
+        }
+        razorpay_order = client.order.create(data=data)
+        
+        # Store the Razorpay order ID in your database.
+        payment = Payment.objects.create(user=user, order=cart_details, razorpay_id=razorpay_order['id'], amount=amount)
+        
+        order_receipt = OrderReceipt.objects.create(
+            cart=cart_details,
+            payment=payment,
+            total_quantity=quantity,
+            total_amount = amount
+            )
+        order_receipt.save()
+        cart_details  = Cart.objects.update(
+            is_manufactured = True,
+            status = 'Shipped'
+            # quantity need to be reduce and if single item then it must set in_cart = false
+            )
+
+        return JsonResponse({'razorpay_order_id': razorpay_order['id']}, safe=True)
+    else:
+        return redirect('home')
 
 
 
@@ -109,7 +216,49 @@ def addtocart(request, design_id):
 
 
 
+def purchase_result(request):
+    if request.method == 'GET':
+        payment_id = request.GET.get('payment_id', None)
+        if payment_id is not None:
+            payment = Payment.objects.get(payment_id=payment_id)
+            if payment.status == 'Successful':
+                # The payment was successful.
+                # Generate an invoice and save it in the OrderReceipt model.
+                receipt = OrderReceipt.objects.create(order=payment.order, payment=payment, total_quantity=payment.order.quantity, total_amount=payment.amount)
+                return render(request, 'purchase_result.html', {'receipt': receipt})
+            else:
+                # The payment failed.
+                return render(request, 'purchase_result.html', {'error': 'The payment failed.'})
+        else:
+            return redirect('home')
+    else:
+        return redirect('home')
 
+
+
+
+
+
+
+@csrf_exempt
+def razorpay_webhook(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        if data['event'] == 'payment.authorized':
+            # The payment was successful.
+            payment_id = data['payload']['payment']['entity']['id']
+            payment = Payment.objects.get(razorpay_id=payment_id)
+            payment.status = 'Successful'
+            payment.save()
+        elif data['event'] == 'payment.failed':
+            # The payment failed.
+            payment_id = data['payload']['payment']['entity']['id']
+            payment = Payment.objects.get(razorpay_id=payment_id)
+            payment.status = 'Failed'
+            payment.save()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponse(status=405)
 
 
 
