@@ -11,6 +11,11 @@ urlpatterns = [
     path('signup/', signup_view, name='signup'), 
     path('cart/', cart, name='cart'),
     path('add_to_cart/<int:design_id>/', addtocart, name='add_to_cart'),
+    path('decrement_cart/<int:design_id>/', decrement_cart, name='decrement_cart'),
+    path('remove_from_cart/<int:design_id>/', remove_from_cart, name='remove_from_cart'),
+    path('create_order/', create_order, name='create_order'),
+    path('purchase_result/', purchase_result, name='purchase_result'),
+    path('razorpay_webhook/', razorpay_webhook, name='razorpay_webhook'),
 
 ]
 if settings.DEBUG:

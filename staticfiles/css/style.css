@@ -163,6 +163,8 @@ nav ul li a:hover {
 #details img:hover,
 #cart img:hover {
     transform: scale(1.1);
+    transition-delay: 2s;
+    transition-duration: inherit;
 }
 
 /* Common styles for the details page */
@@ -436,3 +438,15 @@ a:hover {
     transform: scale(1.1);
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
