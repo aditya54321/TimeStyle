@@ -25,8 +25,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-yu&m&+jc_v9ab@a6dx9$v#&d-3-3ye7lqi9*(0x1ug35ph&x_b'
 
-RAZORPAY_KEY = config('RAZORPAY_KEY_ID')
-RAZORPAY_SECRET = config('RAZORPAY_SECRET')
+RAZORPAY_KEY = 1                  #config('RAZORPAY_KEY_ID')
+RAZORPAY_SECRET = 1               #config('RAZORPAY_SECRET')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!

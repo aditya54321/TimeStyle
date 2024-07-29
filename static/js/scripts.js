@@ -41,33 +41,6 @@ function calculateSubtotals() {
 }
 
 
-
-// function calculateSubtotals() {
-//     var cartItems = document.querySelectorAll('.flex-item');
-    
-//     cartItems.forEach(function(cartItem) {
-//         var price = parseFloat(cartItem.querySelector('.price').getAttribute('data-price'));
-//         var quantity = parseInt(cartItem.querySelector('.quantity').getAttribute('data-quantity'));
-
-//         if (!isNaN(price) && !isNaN(quantity)) {
-//             var subtotalElement = cartItem.querySelector('.subtotal').textContent.trim();
-//             console.log(subtotalElement)
-//             var subtotalValue = parseFloat(subtotalElement.replace('$', '')); // Remove the $ symbol
-//             console.log(subtotalValue);
-            
-//             if (isNaN(subtotalElement)) {
-//                 var subtotal = price * quantity;
-//                 subtotalElement.textContent = ' ' + subtotal.toFixed(2); // Add $ symbol back
-//             } else {
-//                 console.error('Subtotal value is not a valid number:', subtotalElement);
-//             }
-//         } else {
-//             console.error('Price or quantity is not a valid number:', price, quantity);
-//         }
-//     });
-// }
-
-
 function calculateTotal() {
     var subtotals = document.querySelectorAll('.subtotal');
     // console.log(subtotals);
