@@ -35,15 +35,14 @@ function calculateSubtotals() {
         var subtotal = price * quantity;
         cartItem.querySelector('.subtotal').textContent ='Subtotel: ' + subtotal.toFixed(2);
         
-        total_prise += subtotal;
+        total += subtotal;
     });
     return total.toFixed(2);
 }
 
 
 function calculateTotal() {
-    var subtotals = document.querySelectorAll('.subtotal');
-    // console.log(subtotals);
+
     var total = calculateSubtotals(); // Get the total from calculateSubtotals function
     console.log("Total:", total);
 

@@ -158,7 +158,6 @@ def remove_from_cart(request, design_id):
 
 
 
-
 @csrf_exempt
 def create_order(request):
 
