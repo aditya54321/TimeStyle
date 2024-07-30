@@ -42,9 +42,11 @@ TimeStyle - All Products
             {% csrf_token %}
             <input type="hidden" name="item_id" value="{{ cart_item.design.id }}">
             <input type="hidden" name="quantity" value="{{ cart_item.quantity }}">
-            <input type="submit" value="Checkout">
+            <button type="submit" class="checkout-item__button" role="button" value="Checkout">Checkout</button>
           </form>
-          <a href="{% url 'remove_from_cart' design_id=cart_item.design.id %}" class="delete-btn btn btn-primary">Remove</a>
+          <button>
+            <a href="{% url 'remove_from_cart' design_id=cart_item.design.id %}" class="delete-btn">Remove</a>
+          </button>
         </div>
       </div>
     </div>
