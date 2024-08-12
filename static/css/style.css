@@ -131,7 +131,7 @@ nav ul li a:hover {
 }
 
 #details img{
-    width: 65%;
+    width: 100%;
     height:auto;
     object-fit: cover;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -173,7 +173,7 @@ nav ul li a:hover {
 
 h1 {
     text-align: center;
-    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
     font-size: 32px;
     margin-bottom: 10px;
 }
@@ -187,6 +187,32 @@ p {
 
 strong {
     color: #04AA6D;
+}
+
+#details .product .info{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+#details .product .info p{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0;
+}
+#details .product .info .detail-strong{
+width: fit-content;
+line-height: initial;
+white-space: initial;
+}
+#details .product .info .strong-text{
+    display: flex;
+    flex-direction: row-reverse;
+    white-space: initial;
+    line-height: initial;
+    margin: 1px 0 1px 5px;
+    line-break:auto;
 }
 
 .image {
@@ -285,6 +311,62 @@ a:hover {
 
 /* Responsive styles */
 @media screen and (max-width: 650px) {
+    h1{
+        font-family: sans-serif;
+    }
+    #details .product .info{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+    #details .product .info p{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 0;
+    }
+    #details .product .info .detail-strong{
+    width: fit-content;
+    line-height: initial;
+    white-space: initial;
+    font-size: 16px;
+    font-weight: 500;
+    }
+    #details .product .info .strong-text{
+        display: flex;
+        flex-direction: row-reverse;
+        white-space: initial;
+        line-height: initial;
+        margin: 1px 0 1px 5px;
+        line-break:auto;
+        font-size: 14px;
+    }
+    #details .product .info a{
+        max-width: fit-content;
+        text-decoration: none;
+        align-items: center;
+    }
+    #details .product{
+        display: flex;
+    }
+
+    #details .product .image{
+        width: fit-content;
+        height: max-content;
+    }
+    #details .product .image img{
+        width: 100%;
+        max-height: max-content;
+    }
+
+    .product{
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        align-items: center;
+        margin-top: 2px;
+    }    
 
     .header .website{
         display: flex;
@@ -320,7 +402,11 @@ a:hover {
     .form-container {
         width: 90%;
     }
-
+    #footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 
