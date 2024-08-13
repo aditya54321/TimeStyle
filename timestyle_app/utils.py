@@ -25,7 +25,7 @@
 
 # import MailChecker
 
-import phonenumbers
+# import phonenumbers
 import requests
 from functools import reduce
 import random
@@ -155,14 +155,14 @@ def check_social_user_details(token, backend):
 
 
 
-def phonenumber_validator(value):
-    try:
-        z = phonenumbers.parse(value, None)
-        if not phonenumbers.is_valid_number(z):
-            raise ValidationError('Please enter a valid phone number')
-        return phonenumbers.format_number(z, phonenumbers.PhoneNumberFormat.E164)
-    except Exception:
-        raise ValidationError('Please enter a valid phone number must start with country code')
+# def phonenumber_validator(value):
+#     try:
+#         z = phonenumbers.parse(value, None)
+#         if not phonenumbers.is_valid_number(z):
+#             raise ValidationError('Please enter a valid phone number')
+#         return phonenumbers.format_number(z, phonenumbers.PhoneNumberFormat.E164)
+#     except Exception:
+#         raise ValidationError('Please enter a valid phone number must start with country code')
 
 
 def google_user_details(token):
@@ -214,12 +214,12 @@ def get_pincode_from_address(address):
     return pin_code if pin_code else None
 
 
-def is_valid_phone_number(value):
-    try:
-        phonenumber_validator(value)
-        return True
-    except Exception:
-        return False
+# def is_valid_phone_number(value):
+#     try:
+#         phonenumber_validator(value)
+#         return True
+#     except Exception:
+#         return False
     
 
 def get_multiple_list_matching(matching_key_mappings: dict):

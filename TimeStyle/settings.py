@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from decouple import config
+# from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +32,7 @@ RAZORPAY_SECRET = 1               #config('RAZORPAY_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aditya0singh1.pythonanywhere.com', 'www.aditya0singh1.pythonanywhere.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['adityasingh11.pythonanywhere.com', 'www.adityasingh11.pythonanywhere.com','localhost','127.0.0.1']
 
 # Application definition
 
