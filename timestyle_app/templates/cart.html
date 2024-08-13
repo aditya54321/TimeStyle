@@ -44,9 +44,11 @@ TimeStyle - All Products
             <input type="hidden" name="quantity" value="{{ cart_item.quantity }}">
             <button type="submit" class="checkout-item__button" role="button" value="Checkout">Checkout</button>
           </form>
-          <button>
-            <a href="{% url 'remove_from_cart' design_id=cart_item.design.id %}" class="delete-btn">Remove</a>
-          </button>
+
+          <form method="post" action="{% url 'remove_from_cart' design_id=cart_item.design.id %}">
+            {% csrf_token %}
+            <button type="submit" class="checkout-item__button" role="button" value="Remove">Remove</button>
+          </form>
         </div>
       </div>
     </div>
