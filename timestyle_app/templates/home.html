@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- The 'title' block contains the title of the home page -->
+{% block title %}
+TimeStyle - All Products
+{% endblock %}
+
+{% block content %}
+<section id="products">
+  <div class="row">
+    {% for design in designs %}
+      <!-- The 'product' article contains the details of each product -->
+      <article class="product scale-up-center col-lg-3 col-md-4 col-sm-6">
+        <div class="card">
+          <a href="{% url 'details' design.id %}">
+            <img src="{{ design.image.url }}" alt="{{ design.name }}" class="card-img-top img-fluid">
+          </a>
+          <div class="card-body">
+            <center>
+            <h5 class="card-title">{{ design.name }}</h5>
+            <!-- <p class="card-text">{{ design.description|truncatewords:20 }}</p> -->
+            </center>
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

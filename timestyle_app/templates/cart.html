@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+TimeStyle - All Products
+{% endblock %}
+
+{% block content %}
+<section id="cart">
+  <h1>Your Cart</h1>
+  {% for u in cart_items %}
+    {% if u.user.first_name and forloop.first %}
+      <p>Hello, {{ u.user.first_name }} {{ u.user.last_name }}!</p>
+    {% endif %}
+  {% endfor %}
+
+  {% if not user_email %}
+      <p>Hello Guest! Please <a href="{% url 'login' %}">Login</a></p>
+  {% elif not cart_items %}
+      <p>Hello {{user_name}} Please add some items in Cart. <a href="{% url 'home' %}">select items from here !</a></p>
+  {% endif %}
+
+{% for cart_item in cart_items %}
+  {% if cart_item %}
+    <div class="flex-container">
+      <div class="flex-image">
+        <figure>
+          <img src="{{ cart_item.design.watch_design.image.url }}" alt="{{ cart_item.design.name }}" width="50">
+          <figcaption>{{ cart_item.design.watch_design.name }}</figcaption>
+        </figure>
+      </div>
+      <div class="flex-item" data-item-id="{{ cart_item.design.id }}">
+        <!-- <p>id: ${{ cart_item.design.id }}</p> -->
+        <p class="price" data-price="{{ cart_item.design.price }}">Price: ${{ cart_item.design.price }}</p>
+        <p>Status: {{ cart_item.status }}</p>
+        <p>Cart Date: {{ cart_item.order_date }}</p>
+        <!-- <p>Quantity: {{ cart_item.quantity }}</p> -->
+        <p class="quantity" data-quantity="{{ cart_item.quantity }}">Quantity: {{ cart_item.quantity }}</p>
+          <div class="quantity-buttons">
+            <a href="{% url 'add_to_cart' design_id=cart_item.design.id %}" class="add-btn">+</a>
+            <a href="{% url 'decrement_cart' design_id=cart_item.design.id %}" class="remove-btn">-</a>
+          </div>
+        <p class="subtotal">Subtotal: $</p>
+        <div class="checkout-button">
+          <form method="post" action="{% url 'initiate_payment' %}" id="payment-form-{{ cart_item.design.id }}">
+              {% csrf_token %}
+              <input type="hidden" name="item_id" id="item_id-{{ cart_item.design.id }}" value="{{ cart_item.design.id }}">
+              <input type="hidden" name="quantity" id="item_quantity-{{ cart_item.design.id }}" value="{{ cart_item.quantity }}">
+              <input type="hidden" name="amount" id="purchase_amount-{{ cart_item.design.id }}" value="{{ cart_item.design.price }}">
+              <button type="submit" id="pay-button-{{ cart_item.design.id }}" class="checkout-item__button" role="button" value="Checkout">Checkout</button>
+            </form>
+            
+            <form method="post" action="{% url 'remove_from_cart' design_id=cart_item.design.id %}">
+              {% csrf_token %}
+              <button type="submit" class="checkout-item__button" role="button" value="Remove">Remove</button>
+            </form>
+          </div>      
+      </div>
+    </div>
+
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+{% endfor %}
+<div class="checkout-section">
+  <div class="total" id="total-amount">Total: $</div>
+  <form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Pay Now">
+  </form>
+  <!-- <button class="pay-now">Pay Now</button> -->
+</div>
+</section>
+{% endblock %}

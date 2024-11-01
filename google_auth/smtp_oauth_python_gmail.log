@@ -1,0 +1,193 @@
+[2024-10-26 21:43:46,726] {auto_mail.py:26} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 21:43:46,727] {auto_mail.py:69} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 21:43:46,727] {auto_mail.py:54} INFO - Creating flow, creating server
+[2024-10-26 21:43:46,727] {auto_mail.py:55} INFO - GOOGLE REQUIRES REAUTHENTICATION - run this step on a machine with GUI Browser
+[2024-10-26 21:43:57,307] {auto_mail.py:59} INFO - Saving the credentials for the next run
+[2024-10-26 21:43:57,308] {auto_mail.py:62} INFO - <google.oauth2.credentials.Credentials object at 0x000001FE3A6AAC50>
+[2024-10-26 21:43:57,313] {auto_mail.py:71} INFO - gmail_authenticate completed
+[2024-10-26 21:43:57,313] {auto_mail.py:79} INFO - Creating smtp session
+[2024-10-26 21:43:58,595] {auto_mail.py:86} INFO - Sending auth string
+[2024-10-26 21:43:59,112] {auto_mail.py:95} INFO - Sending email
+[2024-10-26 21:46:14,073] {auto_mail.py:26} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 21:46:14,073] {auto_mail.py:69} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 21:46:14,080] {auto_mail.py:43} INFO - Reading creds from pickle
+[2024-10-26 21:46:14,081] {auto_mail.py:62} INFO - <google.oauth2.credentials.Credentials object at 0x00000206BFC9A090>
+[2024-10-26 21:46:14,081] {auto_mail.py:71} INFO - gmail_authenticate completed
+[2024-10-26 21:46:14,081] {auto_mail.py:79} INFO - Creating smtp session
+[2024-10-26 21:46:15,562] {auto_mail.py:86} INFO - Sending auth string
+[2024-10-26 21:46:15,968] {auto_mail.py:95} INFO - Sending email
+[2024-10-26 22:15:51,926] {auto_mail.py:26} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 22:15:51,926] {auto_mail.py:69} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 22:15:51,926] {auto_mail.py:43} INFO - Reading creds from pickle
+[2024-10-26 22:15:51,927] {auto_mail.py:62} INFO - <google.oauth2.credentials.Credentials object at 0x0000023EF5530F90>
+[2024-10-26 22:15:51,927] {auto_mail.py:71} INFO - gmail_authenticate completed
+[2024-10-26 22:15:51,927] {auto_mail.py:79} INFO - Creating smtp session
+[2024-10-26 22:15:53,432] {auto_mail.py:86} INFO - Sending auth string
+[2024-10-26 22:15:53,842] {auto_mail.py:95} INFO - Sending email
+[2024-10-26 22:22:49,336] {auto_mail.py:26} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 22:22:49,336] {auto_mail.py:69} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 22:22:49,337] {auto_mail.py:43} INFO - Reading creds from pickle
+[2024-10-26 22:22:49,337] {auto_mail.py:62} INFO - <google.oauth2.credentials.Credentials object at 0x000002171136A390>
+[2024-10-26 22:22:49,337] {auto_mail.py:71} INFO - gmail_authenticate completed
+[2024-10-26 22:22:49,337] {auto_mail.py:79} INFO - Creating smtp session
+[2024-10-26 22:22:51,017] {auto_mail.py:86} INFO - Sending auth string
+[2024-10-26 22:22:51,528] {auto_mail.py:95} INFO - Sending email
+[2024-10-26 22:29:10,205] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 22:29:10,205] {auto_mail.py:109} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 22:29:10,205] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-10-26 22:29:10,205] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x0000015E3AA13250>
+[2024-10-26 22:29:10,205] {auto_mail.py:111} INFO - gmail_authenticate completed
+[2024-10-26 22:29:10,205] {auto_mail.py:121} INFO - Creating smtp session
+[2024-10-26 22:29:11,737] {auto_mail.py:128} INFO - Sending auth string
+[2024-10-26 22:29:12,132] {auto_mail.py:137} INFO - Sending email
+[2024-10-26 22:33:40,077] {auto_mail.py:28} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 22:33:40,077] {auto_mail.py:71} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 22:33:40,077] {auto_mail.py:45} INFO - Reading creds from pickle
+[2024-10-26 22:33:40,077] {auto_mail.py:64} INFO - <google.oauth2.credentials.Credentials object at 0x0000026E92D0CA10>
+[2024-10-26 22:33:40,077] {auto_mail.py:73} INFO - gmail_authenticate completed
+[2024-10-26 22:33:40,077] {auto_mail.py:83} INFO - Creating smtp session
+[2024-10-26 22:33:41,877] {auto_mail.py:90} INFO - Sending auth string
+[2024-10-26 22:33:42,285] {auto_mail.py:99} INFO - Sending email
+[2024-10-26 22:36:22,622] {auto_mail.py:28} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 22:36:22,623] {auto_mail.py:71} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 22:36:22,623] {auto_mail.py:45} INFO - Reading creds from pickle
+[2024-10-26 22:36:22,623] {auto_mail.py:64} INFO - <google.oauth2.credentials.Credentials object at 0x00000221ED1CE690>
+[2024-10-26 22:36:22,623] {auto_mail.py:73} INFO - gmail_authenticate completed
+[2024-10-26 22:36:22,623] {auto_mail.py:83} INFO - Creating smtp session
+[2024-10-26 22:36:24,168] {auto_mail.py:90} INFO - Sending auth string
+[2024-10-26 22:36:24,563] {auto_mail.py:99} INFO - Sending email
+[2024-10-26 22:49:11,599] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 22:49:11,601] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 22:49:11,601] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-10-26 22:49:12,273] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x00000169D167E4D0>
+[2024-10-26 22:49:12,274] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-10-26 22:49:12,274] {auto_mail.py:84} INFO - Creating smtp session
+[2024-10-26 22:49:13,697] {auto_mail.py:91} INFO - Sending auth string
+[2024-10-26 22:49:14,208] {auto_mail.py:100} INFO - Sending email
+[2024-10-26 23:14:09,801] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:14:19,073] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 23:14:19,073] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-10-26 23:14:21,118] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x0000015BA6CA0150>
+[2024-10-26 23:14:21,119] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-10-26 23:14:21,120] {auto_mail.py:84} INFO - Creating smtp session
+[2024-10-26 23:14:22,855] {auto_mail.py:91} INFO - Sending auth string
+[2024-10-26 23:14:23,367] {auto_mail.py:100} INFO - Sending email
+[2024-10-26 23:14:49,511] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:14:51,255] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:14:52,990] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:14:54,759] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:14:59,642] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:15:01,522] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:15:48,494] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:15:50,272] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:15:57,276] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:15:59,009] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:16:01,765] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:16:03,564] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:16:40,037] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:16:41,820] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:16:43,574] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:16:45,396] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:16:48,148] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:16:50,517] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:17:34,753] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 23:17:34,754] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-10-26 23:17:35,419] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x000002C799E45650>
+[2024-10-26 23:17:35,419] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-10-26 23:17:35,420] {auto_mail.py:84} INFO - Creating smtp session
+[2024-10-26 23:17:36,901] {auto_mail.py:91} INFO - Sending auth string
+[2024-10-26 23:17:37,413] {auto_mail.py:100} INFO - Sending email
+[2024-10-26 23:24:19,087] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:24:21,354] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:24:25,217] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:24:29,950] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:24:50,627] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:24:52,317] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:25:14,033] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:25:15,940] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:25:20,891] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:25:22,668] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:25:39,950] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:25:42,251] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:25:44,014] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:25:45,853] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:25:58,093] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py changed, reloading.
+[2024-10-26 23:26:00,184] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-10-26 23:26:23,601] {log.py:241} ERROR - Internal Server Error: /email_auth/
+Traceback (most recent call last):
+  File "C:\Users\akank\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py", line 20, in email_script
+    subject, e_body = create_mail_content()
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py", line 107, in create_mail_content
+    response = gpt.gpt_response()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\gpt.py", line 19, in gpt_response
+    body_response = model.generate_content(body).text
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\generativeai\types\generation_types.py", line 436, in text
+    raise ValueError(
+ValueError: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. Please check the `candidate.safety_ratings` to determine if the response was blocked.
+[2024-10-26 23:27:49,845] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-10-26 23:27:49,846] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-10-26 23:27:51,038] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x000001FDD291A090>
+[2024-10-26 23:27:51,039] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-10-26 23:27:51,040] {auto_mail.py:84} INFO - Creating smtp session
+[2024-10-26 23:27:52,502] {auto_mail.py:91} INFO - Sending auth string
+[2024-10-26 23:27:52,911] {auto_mail.py:100} INFO - Sending email
+[2024-11-01 12:22:42,527] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-11-01 12:22:47,912] {log.py:241} WARNING - Not Found: /favicon.ico
+[2024-11-01 12:24:28,231] {log.py:241} ERROR - Internal Server Error: /email_auth/
+Traceback (most recent call last):
+  File "C:\Users\akank\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\views.py", line 20, in email_script
+    subject, e_body = create_mail_content()
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py", line 107, in create_mail_content
+    response = gpt.gpt_response()
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\gpt.py", line 18, in gpt_response
+    body_response = model.generate_content(body).text
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\akank\AppData\Local\Programs\Python\Python311\Lib\site-packages\google\generativeai\types\generation_types.py", line 436, in text
+    raise ValueError(
+ValueError: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. Please check the `candidate.safety_ratings` to determine if the response was blocked.
+[2024-11-01 12:24:55,879] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-11-01 12:24:55,895] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-11-01 12:24:58,012] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x0000027296114550>
+[2024-11-01 12:24:58,013] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-11-01 12:24:58,013] {auto_mail.py:84} INFO - Creating smtp session
+[2024-11-01 12:25:00,123] {auto_mail.py:91} INFO - Sending auth string
+[2024-11-01 12:25:00,662] {auto_mail.py:100} INFO - Sending email
+[2024-11-01 19:49:02,072] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-11-01 19:49:38,342] {log.py:241} WARNING - Not Found: /favicon.ico
+[2024-11-01 19:51:33,321] {autoreload.py:266} INFO - C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\urls.py changed, reloading.
+[2024-11-01 19:51:38,610] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-11-01 20:32:12,556] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-11-01 20:32:24,018] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-11-01 20:32:24,028] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-11-01 20:32:25,343] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x0000016E6C6D7290>
+[2024-11-01 20:32:25,344] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-11-01 20:32:25,350] {auto_mail.py:84} INFO - Creating smtp session
+[2024-11-01 20:32:27,283] {auto_mail.py:91} INFO - Sending auth string
+[2024-11-01 20:32:27,794] {auto_mail.py:100} INFO - Sending email
+[2024-11-01 20:34:19,415] {auto_mail.py:72} INFO - In send_smtp_oauth, attempting gmail authenticate
+[2024-11-01 20:34:19,415] {auto_mail.py:46} INFO - Reading creds from pickle
+[2024-11-01 20:34:20,537] {auto_mail.py:65} INFO - <google.oauth2.credentials.Credentials object at 0x0000016E6D829090>
+[2024-11-01 20:34:20,538] {auto_mail.py:74} INFO - gmail_authenticate completed
+[2024-11-01 20:34:20,539] {auto_mail.py:84} INFO - Creating smtp session
+[2024-11-01 20:34:22,483] {auto_mail.py:91} INFO - Sending auth string
+[2024-11-01 20:34:29,854] {auto_mail.py:100} INFO - Sending email
+[2024-11-01 21:48:08,146] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-11-01 21:50:57,503] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
+[2024-11-01 21:51:51,760] {auto_mail.py:29} INFO - start C:\Users\akank\Desktop\projects\MiniCart\TimeStyle\google_auth\auto_mail.py
