@@ -46,14 +46,13 @@ TimeStyle - All Products
               <input type="hidden" name="item_id" id="item_id-{{ cart_item.design.id }}" value="{{ cart_item.design.id }}">
               <input type="hidden" name="quantity" id="item_quantity-{{ cart_item.design.id }}" value="{{ cart_item.quantity }}">
               <input type="hidden" name="amount" id="purchase_amount-{{ cart_item.design.id }}" value="{{ cart_item.design.price }}">
-              <button type="submit" id="pay-button-{{ cart_item.design.id }}" class="checkout-item__button" role="button" value="Checkout">Checkout</button>
-            </form>
-            
-            <form method="post" action="{% url 'remove_from_cart' design_id=cart_item.design.id %}">
-              {% csrf_token %}
-              <button type="submit" class="checkout-item__button" role="button" value="Remove">Remove</button>
-            </form>
-          </div>      
+              <button type="submit" id="pay-button-{{ cart_item.design.id }}" class="checkout-item__button" role="button" value="Checkout">Checkout</button> 
+          </form>
+          </div>                     
+          <form method="post" action="{% url 'remove_from_cart' design_id=cart_item.design.id %}">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn" role="button" value="Remove">Remove</button>
+          </form>
       </div>
     </div>
 
